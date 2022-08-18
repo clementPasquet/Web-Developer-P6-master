@@ -13,7 +13,7 @@ const userRoutes = require('./routes/user')
 const app = express()
 app.use(helmet())
 
-mongoose.connect('mongodb+srv://AdminPiiquante:tikQ7eYpMYhWQ7hw@cluster0.cbryhjv.mongodb.net/?retryWrites=true&w=majority',
+mongoose.connect("mongodb+srv://" +process.env.DB_USER_PASS+ "@cluster0.cbryhjv.mongodb.net/?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true
