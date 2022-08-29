@@ -5,7 +5,9 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
 
-
+// cette fonction enregistre un utilisateur en base de donnée en s'assurant de l'unicité du mail grace au modele user et a uniqueValidator
+// on utilise ici bcrypt aui va "hash" notre mot de passe,
+// c'est a dire nous renvoyer une chaine de caracteres unique que nous enregistrons a la place du mdp dans la BD
 exports.signup = (req, res, next) => {
     bcrypt.hash(req.body.password, 10)
       .then(hash => {
@@ -23,7 +25,9 @@ exports.signup = (req, res, next) => {
 
 
 
-
+// cette fonction permet la connexion , on compare le mail entré pour retrouver notre utilisateur 
+//puis le  mdp rentré par l'utilisteur a la chaine de caracteres emise par bcrypt 
+//enfin on fournit un token jwt qui permet le maintien de la connexion et la sécurisation des routes sauces
   exports.login = (req, res, next) => {
     User.findOne({ email: req.body.email })
         .then(user => {

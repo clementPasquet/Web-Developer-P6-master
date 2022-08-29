@@ -1,5 +1,5 @@
 const multer = require('multer');
-
+// ce middleware permet de gerer les extensions de fichiers ajoutés a notre site ainsi que le repertoire de destination
 const MIME_TYPES = {
   'image/jpg': 'jpg',
   'image/jpeg': 'jpg',
